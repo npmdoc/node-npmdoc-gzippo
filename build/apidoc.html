@@ -1,0 +1,1068 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://www.tomg.co/gzippo"
+
+    >gzippo (v0.2.0)</a>
+</h1>
+<h4>Gzip middleware for Connect using the native zlib library in node >= 0.6</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gzippo">module gzippo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.Store">
+            function <span class="apidocSignatureSpan">gzippo.</span>Store
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.compress">
+            function <span class="apidocSignatureSpan">gzippo.</span>compress
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory">
+            function <span class="apidocSignatureSpan">gzippo.</span>memory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.staticGzip">
+            function <span class="apidocSignatureSpan">gzippo.</span>staticGzip
+            <span class="apidocSignatureSpan">(dirPath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream">
+            function <span class="apidocSignatureSpan">gzippo.</span>storeStream
+            <span class="apidocSignatureSpan">(store, fileName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gzippo.</span>memory.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gzippo.</span>storeStream.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gzippo.memory">module gzippo.memory</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.memory">
+            function <span class="apidocSignatureSpan">gzippo.</span>memory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.super_">
+            function <span class="apidocSignatureSpan">gzippo.memory.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gzippo.memory.prototype">module gzippo.memory.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.prototype.get">
+            function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>get
+            <span class="apidocSignatureSpan">(fileName, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.prototype.length">
+            function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>length
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.prototype.purge">
+            function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>purge
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.prototype.purgeFile">
+            function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>purgeFile
+            <span class="apidocSignatureSpan">(asset, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.memory.prototype.set">
+            function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>set
+            <span class="apidocSignatureSpan">(asset, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gzippo.storeStream">module gzippo.storeStream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.storeStream">
+            function <span class="apidocSignatureSpan">gzippo.</span>storeStream
+            <span class="apidocSignatureSpan">(store, fileName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.super_">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gzippo.storeStream.prototype">module gzippo.storeStream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype._process">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>_process
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype.destory">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>destory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype.end">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>end
+            <span class="apidocSignatureSpan">(chunk, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype.flush">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>flush
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype.pause">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>pause
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype.resume">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>resume
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gzippo.storeStream.prototype.write">
+            function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>write
+            <span class="apidocSignatureSpan">(chunk, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gzippo" id="apidoc.module.gzippo">module gzippo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.Store" id="apidoc.element.gzippo.Store">
+        function <span class="apidocSignatureSpan">gzippo.</span>Store
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Store(options) {
+  if (!(this instanceof Store)) return new Store(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.compress" id="apidoc.element.gzippo.compress">
+        function <span class="apidocSignatureSpan">gzippo.</span>compress
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compress(options) {
+  var options = options || {}
+    , names = Object.keys(exports.methods)
+    , filter = options.filter || exports.filter;
+
+  return function(req, res, next){
+    var accept = req.headers[&#x27;accept-encoding&#x27;]
+      , write = res.write
+      , end = res.end
+      , stream
+      , method;
+
+    // vary
+    res.setHeader(&#x27;Vary&#x27;, &#x27;Accept-Encoding&#x27;);
+
+    // proxy
+
+    res.write = function(chunk, encoding){
+      if (!this.headerSent) this._implicitHeader();
+      return stream
+        ? stream.write(chunk, encoding)
+        : write.call(res, chunk, encoding);
+    };
+
+    res.end = function(chunk, encoding){
+      if (chunk) this.write(chunk, encoding);
+      return stream
+        ? stream.end()
+        : end.call(res);
+    };
+
+    res.on(&#x27;header&#x27;, function(){
+      // default request filter
+      if (!filter(req, res)) return;
+
+      // SHOULD use identity
+      if (!accept) return;
+
+      // head
+      if (&#x27;HEAD&#x27; == req.method) return;
+
+      // default to gzip
+      if (&#x27;*&#x27; == accept.trim()) method = &#x27;gzip&#x27;;
+
+      // compression method
+      if (!method) {
+        for (var i = 0, len = names.length; i &#x3c; len; ++i) {
+          if (~accept.indexOf(names[i])) {
+            method = names[i];
+            break;
+          }
+        }
+      }
+
+      // compression method
+      if (!method) return;
+
+      // compression stream
+      stream = exports.methods[method](options);
+
+      // header fields
+      res.setHeader(&#x27;Content-Encoding&#x27;, method);
+      res.removeHeader(&#x27;Content-Length&#x27;);
+
+      // compression
+
+      stream.on(&#x27;data&#x27;, function(chunk){
+        write.call(res, chunk);
+      });
+
+      stream.on(&#x27;end&#x27;, function(){
+        end.call(res);
+      });
+    });
+
+    next();
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Gzippo now uses the native Zlib support found in node &#x3e;= 0.6
+
+#### Streaming Gzip
+
+Starting in Connect 2.X Expressjs has the ability to use a streaming gzip module provided natively by connect. As this 2.X branch
+ is not currently stable I have back ported the compress.js component into gzippo.
+
+	app.use(gzippo.staticGzip(__dirname + &#x27;/public&#x27;));
+	app.use(gzippo.<span class="apidocCodeKeywordSpan">compress</span>());
+
+This has no caching and is currently unsupported as it will be included in a future connect 1.X release, up until then compress.
+js will be included in gzippo.
+
+## License
+
+(The MIT License)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory" id="apidoc.element.gzippo.memory">
+        function <span class="apidocSignatureSpan">gzippo.</span>memory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryStore() {
+  Store.call(this);
+  this.assets = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.staticGzip" id="apidoc.element.gzippo.staticGzip">
+        function <span class="apidocSignatureSpan">gzippo.</span>staticGzip
+        <span class="apidocSignatureSpan">(dirPath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function staticGzip(dirPath, options){
+    options = options || {};
+
+    var maxAge = options.maxAge || 86400000,
+        contentTypeMatch = options.contentTypeMatch || /text|javascript|json/,
+        clientMaxAge = options.clientMaxAge || 604800000,
+        prefix = options.prefix || &#x27;&#x27;,
+        names = Object.keys(methods),
+        compressionOptions = options.compression || {},
+        store = options.store || new MemoryStore();
+
+    if (!dirPath) throw new Error(&#x27;You need to provide the directory to your static content.&#x27;);
+    if (!contentTypeMatch.test) throw new Error(&#x27;contentTypeMatch: must be a regular expression.&#x27;);
+
+    dirPath = path.normalize(dirPath);
+
+    return function(req, res, next) {
+        var acceptEncoding = req.headers[&#x27;accept-encoding&#x27;] || &#x27;&#x27;,
+            url,
+            filename,
+            contentType,
+            charset,
+            method;
+
+        function pass(name) {
+            send(req, url.substring(prefix.length))
+                .maxage(clientMaxAge || 0)
+                .root(dirPath)
+                .pipe(res)
+                ;
+        }
+
+        function setHeaders(stat, asset) {
+            res.setHeader(&#x27;Content-Type&#x27;, contentType);
+            res.setHeader(&#x27;Content-Encoding&#x27;, method);
+            res.setHeader(&#x27;Vary&#x27;, &#x27;Accept-Encoding&#x27;);
+            // if cache version is avalible then add this.
+            if (asset) {
+                // res.setHeader(&#x27;Content-Length&#x27;, asset.length);
+                res.setHeader(&#x27;ETag&#x27;, &#x27;&#x22;&#x27; + asset.length + &#x27;-&#x27; + Number(asset.mtime) + &#x27;&#x22;&#x27;);
+                res.setHeader(&#x27;Last-Modified&#x27;, asset.mtime.toUTCString());
+            }
+            res.setHeader(&#x27;Date&#x27;, new Date().toUTCString());
+            res.setHeader(&#x27;Expires&#x27;, new Date(Date.now() + clientMaxAge).toUTCString());
+            res.setHeader(&#x27;Cache-Control&#x27;, &#x27;public, max-age=&#x27; + (clientMaxAge / 1000));
+        }
+
+        // function gzipAndSend(filename, gzipName, mtime) {
+        //     gzippo(filename, charset, function(gzippedData) {
+        //         gzippoCache[gzipName] = {
+        //             &#x27;ctime&#x27;: Date.now(),
+        //             &#x27;mtime&#x27;: mtime,
+        //             &#x27;content&#x27;: gzippedData
+        //         };
+        //         sendGzipped(gzippoCache[gzipName]);
+        //     });
+        // }
+
+        function forbidden(res) {
+          var body = &#x27;Forbidden&#x27;;
+          res.setHeader(&#x27;Content-Type&#x27;, &#x27;text/plain&#x27;);
+          res.setHeader(&#x27;Content-Length&#x27;, body.length);
+          res.statusCode = 403;
+          res.end(body);
+        }
+
+        if (req.method !== &#x27;GET&#x27; &#x26;&#x26; req.method !== &#x27;HEAD&#x27;) {
+            return next();
+        }
+
+        url = decodeURI(parseUrl(req).pathname);
+
+        // Allow a url path prefix
+        if (url.substring(0, prefix.length) !== prefix) {
+            return next();
+        }
+
+        filename = path.normalize(path.join(dirPath, url.substring(prefix.length)));
+        // malicious path
+        if (0 != filename.indexOf(dirPath)){
+          return forbidden(res);
+        }
+
+        // directory index file support
+        if (filename.substr(-1) === &#x27;/&#x27;) filename += &#x27;index.html&#x27;;
+
+
+        contentType = mime.lookup(filename);
+        charset = mime.charsets.lookup(contentType, &#x27;UTF-8&#x27;);
+        contentType = contentType + (charset ? &#x27;; charset=&#x27; + charset : &#x27;&#x27;);
+
+        // default to gzip
+        if (&#x27;*&#x27; == acceptEncoding.trim()) method = &#x27;gzip&#x27;;
+
+        // compression method
+        if (!method) {
+            for (var i = 0, len = names.length; i &#x3c; len; ++i) {
+              if (~acceptEncoding.indexOf(names[i])) {
+                method = names[i];
+                break;
+              }
+            }
+        }
+
+        if (!method) return pass(filename);
+
+        fs.stat(filename, function(err, stat) {
+
+            if (err) {
+                return next();
+            }
+
+            if (stat.isDirectory()) {
+                return next();
+            }
+
+            if (!contentTypeMatch.test(contentType)) {
+                return pass(filename);
+            }
+
+            // superceeded by if (!method) return;
+            // ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+In your express/connect server setup, use as follows:
+
+	var gzippo = require(&#x27;gzippo&#x27;);
+
+	//Replace the static provider with gzippo&#x27;s
+	//app.use(express.static(__dirname + &#x27;/public&#x27;));
+	app.use(gzippo.<span class="apidocCodeKeywordSpan">staticGzip</span>(__dirname + &#x27;/public&#x27;));
+
+Options:
+
+- `contentTypeMatch` - A regular expression tested against the Content-Type header to determine whether the response should be gzipped
+ or not. The default value is `/text|javascript|json/`.
+- `maxAge` - cache-control max-age directive, defaulting to 1 day
+- `clientMaxAge` - browser cache-control max-age directive, defaulting to 1 week
+- `prefix` - A url prefix. If you want all your static content in a root path such as /resource/. Any url paths not matching will
+ be ignored
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream" id="apidoc.element.gzippo.storeStream">
+        function <span class="apidocSignatureSpan">gzippo.</span>storeStream
+        <span class="apidocSignatureSpan">(store, fileName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StoreStream(store, fileName, options) {
+  if (!(this instanceof StoreStream)) return new StoreStream(store, options);
+  options = options || {};
+
+  this._queue = [];
+  this._processing = false;
+  this._ended = false;
+  this.readable = true;
+  this.writable = true;
+
+  this._asset = new FileAsset(fileName, options);
+  this._store = store;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gzippo.memory" id="apidoc.module.gzippo.memory">module gzippo.memory</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.memory" id="apidoc.element.gzippo.memory.memory">
+        function <span class="apidocSignatureSpan">gzippo.</span>memory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryStore() {
+  Store.call(this);
+  this.assets = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.super_" id="apidoc.element.gzippo.memory.super_">
+        function <span class="apidocSignatureSpan">gzippo.memory.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Store(options) {
+  if (!(this instanceof Store)) return new Store(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gzippo.memory.prototype" id="apidoc.module.gzippo.memory.prototype">module gzippo.memory.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.prototype.get" id="apidoc.element.gzippo.memory.prototype.get">
+        function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>get
+        <span class="apidocSignatureSpan">(fileName, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (fileName, cb) {
+  var that = this;
+  process.nextTick(function(){
+    var expires,
+        asset = that.assets[fileName];
+    if (asset) {
+      // expires = (typeof asset.expires === &#x27;string&#x27;) ?
+      //   +Date.parse(asset.expires) :
+      //   asset.expires;
+      // if (!expires || +Date.now() &#x3c; expires) {
+        cb(null, asset);
+      // } else {
+      //   that.purgeFile(file, cb);
+      // }
+    } else {
+      cb();
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        req.destroy();
+    } else {
+        next(err);
+    }
+});
+            };
+
+            store.<span class="apidocCodeKeywordSpan">get</span>(decodeURI(filename), function(err, asset) {
+setHeaders(stat, asset);
+if (err) {
+    // handle error
+
+} else if (!asset) {
+    sendGzipped(decodeURI(filename));
+} else if ((asset.mtime &#x3c; stat.mtime) || asset.isExpired) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.prototype.length" id="apidoc.element.gzippo.memory.prototype.length">
+        function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>length
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">length = function (cb){
+  cb(null, Object.keys(this.assets).length);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.prototype.purge" id="apidoc.element.gzippo.memory.prototype.purge">
+        function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>purge
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">purge = function (cb){
+  this.assets = {};
+  if(cb instanceof Function) cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.prototype.purgeFile" id="apidoc.element.gzippo.memory.prototype.purgeFile">
+        function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>purgeFile
+        <span class="apidocSignatureSpan">(asset, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">purgeFile = function (asset, cb){
+  process.nextTick(function() {
+    delete this.assets[asset.name];
+    if(cb instanceof Function) cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (asset) {
+      // expires = (typeof asset.expires === &#x27;string&#x27;) ?
+      //   +Date.parse(asset.expires) :
+      //   asset.expires;
+      // if (!expires || +Date.now() &#x3c; expires) {
+        cb(null, asset);
+      // } else {
+      //   that.<span class="apidocCodeKeywordSpan">purgeFile</span>(file, cb);
+      // }
+    } else {
+      cb();
+    }
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.memory.prototype.set" id="apidoc.element.gzippo.memory.prototype.set">
+        function <span class="apidocSignatureSpan">gzippo.memory.prototype.</span>set
+        <span class="apidocSignatureSpan">(asset, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (asset, cb) {
+  var that = this;
+  process.nextTick(function() {
+    that.assets[asset.name] = asset.data;
+    if(cb instanceof Function) cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+StoreStream.prototype.end = function end(chunk, cb) {
+  var self = this;
+  this._ending = true;
+  var ret = this.write(chunk, function() {
+    self.emit(&#x27;end&#x27;);
+    process.nextTick(function() {
+      self._store.<span class="apidocCodeKeywordSpan">set</span>(self._asset);
+    });
+    if (cb) cb();
+  });
+  this._ended = true;
+  return ret;
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gzippo.storeStream" id="apidoc.module.gzippo.storeStream">module gzippo.storeStream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.storeStream" id="apidoc.element.gzippo.storeStream.storeStream">
+        function <span class="apidocSignatureSpan">gzippo.</span>storeStream
+        <span class="apidocSignatureSpan">(store, fileName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StoreStream(store, fileName, options) {
+  if (!(this instanceof StoreStream)) return new StoreStream(store, options);
+  options = options || {};
+
+  this._queue = [];
+  this._processing = false;
+  this._ended = false;
+  this.readable = true;
+  this.writable = true;
+
+  this._asset = new FileAsset(fileName, options);
+  this._store = store;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.super_" id="apidoc.element.gzippo.storeStream.super_">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stream() {
+  EE.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gzippo.storeStream.prototype" id="apidoc.module.gzippo.storeStream.prototype">module gzippo.storeStream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype._process" id="apidoc.element.gzippo.storeStream.prototype._process">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>_process
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_process = function () {
+  var self = this;
+  if (this._processing || this._paused) return;
+
+  if (this._queue.length === 0) {
+    if (this._needDrain) {
+      this._needDrain = false;
+      this.emit(&#x27;drain&#x27;);
+    }
+    // nothing to do, waiting for more data at this point.
+    return;
+  }
+
+  var req = this._queue.shift();
+  var cb = req.pop();
+  var chunk = req.pop();
+
+  if (this._ending &#x26;&#x26; this._queue.length === 0) {
+    this._flush = true;
+  }
+
+  if (chunk !== null) {
+    self.emit(&#x27;data&#x27;, chunk);
+    this._asset.fileContents.push(chunk);
+  }
+
+  // finished with the chunk.
+  self._processing = false;
+  if (cb) cb();
+  self._process();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return this.emit(&#x27;error&#x27;, new Error(&#x27;Invalid argument&#x27;));
+  }
+
+
+  var empty = this._queue.length === 0;
+
+  this._queue.push([chunk, cb]);
+  this.<span class="apidocCodeKeywordSpan">_process</span>();
+  if (!empty) {
+    this._needDrain = true;
+  }
+  return empty;
+};
+
+StoreStream.prototype.flush = function flush(cb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype.destory" id="apidoc.element.gzippo.storeStream.prototype.destory">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>destory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destory = function () {
+  this._paused = true;
+  StoreStream.prototype.end.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype.end" id="apidoc.element.gzippo.storeStream.prototype.end">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>end
+        <span class="apidocSignatureSpan">(chunk, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function end(chunk, cb) {
+  var self = this;
+  this._ending = true;
+  var ret = this.write(chunk, function() {
+    self.emit(&#x27;end&#x27;);
+    process.nextTick(function() {
+      self._store.set(self._asset);
+    });
+    if (cb) cb();
+  });
+  this._ended = true;
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    ? stream.write(chunk, encoding)
+    : write.call(res, chunk, encoding);
+};
+
+res.end = function(chunk, encoding){
+  if (chunk) this.write(chunk, encoding);
+  return stream
+    ? stream.<span class="apidocCodeKeywordSpan">end</span>()
+    : end.call(res);
+};
+
+res.on(&#x27;header&#x27;, function(){
+  // default request filter
+  if (!filter(req, res)) return;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype.flush" id="apidoc.element.gzippo.storeStream.prototype.flush">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>flush
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(cb) {
+  return this.write(cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype.pause" id="apidoc.element.gzippo.storeStream.prototype.pause">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>pause
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pause = function () {
+  this._paused = true;
+  this.emit(&#x27;pause&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype.resume" id="apidoc.element.gzippo.storeStream.prototype.resume">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>resume
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resume = function () {
+  this._paused = false;
+  this._process();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gzippo.storeStream.prototype.write" id="apidoc.element.gzippo.storeStream.prototype.write">
+        function <span class="apidocSignatureSpan">gzippo.storeStream.prototype.</span>write
+        <span class="apidocSignatureSpan">(chunk, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function write(chunk, cb) {
+  if (this._ended) {
+    return this.emit(&#x27;error&#x27;, new Error(&#x27;Cannot write after end&#x27;));
+  }
+
+  if (arguments.length === 1 &#x26;&#x26; typeof chunk === &#x27;function&#x27;) {
+    cb = chunk;
+    chunk = null;
+  }
+
+  if (!chunk) {
+    chunk = null;
+  } else if (typeof chunk === &#x27;string&#x27;) {
+    chunk = new Buffer(chunk);
+  } else if (!Buffer.isBuffer(chunk)) {
+    return this.emit(&#x27;error&#x27;, new Error(&#x27;Invalid argument&#x27;));
+  }
+
+
+  var empty = this._queue.length === 0;
+
+  this._queue.push([chunk, cb]);
+  this._process();
+  if (!empty) {
+    this._needDrain = true;
+  }
+  return empty;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+res.setHeader(&#x27;Vary&#x27;, &#x27;Accept-Encoding&#x27;);
+
+// proxy
+
+res.write = function(chunk, encoding){
+  if (!this.headerSent) this._implicitHeader();
+  return stream
+    ? stream.<span class="apidocCodeKeywordSpan">write</span>(chunk, encoding)
+    : write.call(res, chunk, encoding);
+};
+
+res.end = function(chunk, encoding){
+  if (chunk) this.write(chunk, encoding);
+  return stream
+    ? stream.end()
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
